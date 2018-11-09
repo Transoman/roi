@@ -17,7 +17,7 @@
   display: none
   position: absolute
   right: 0
-  top: 17px
+  top: 50%
   width: 28px
   height: 15px
   padding: 0
@@ -27,6 +27,7 @@
   background: none
   z-index: 101
   cursor: pointer
+  transform: translateY(-50%)
   +transition
   &:focus
     outline: none
@@ -35,7 +36,7 @@
     display: block
     height: 2px
     width: 100%
-    background: $accent
+    background: $dodger-blue
     +transition
     &::after, &::before
       content: ''
@@ -44,7 +45,7 @@
       display: block
       height: 2px
       width: 100%
-      background: $accent
+      background: $dodger-blue
       +transition
     &::before
       top: -6px
@@ -59,3 +60,23 @@
       &::before
         top: 0
         transform: rotate(-45deg)
+
++media-breakpoint-down(md)
+  .nav
+    position: fixed
+    width: 100%
+    height: 100vh
+    left: 0
+    top: -100%
+    background-color: $thunder-2
+    z-index: 1
+
+  .nav-list
+    padding: 40px 0 0 20px
+    flex-direction: column
+    li
+      margin-right: 0
+      margin-bottom: 15px
+
+  .nav-toggle
+    display: block
