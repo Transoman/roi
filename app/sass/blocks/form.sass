@@ -1,1 +1,31 @@
-// Form
+.form
+  &-group
+    position: relative
+    margin-bottom: 20px
+    &:last-child
+      margin-bottom: 0
+  &__field
+    width: 100%
+    padding: 20px 30px
+    background-color: $thunder
+    border: 2px solid $don-juan
+    border-radius: 10px
+    font-size: 20px
+    color: $don-juan
+    +transition(0.5s)
+    &:hover, &:focus
+      outline: none
+      border-color: lighten($don-juan, 8%)
+  &--hr
+    display: flex
+    flex-wrap: wrap
+    .form-group
+      width: 50%
+      &:nth-child(1)
+        .form__field
+          border-radius: 10px 0 0 10px
+          border-right-width: 1px
+      &:nth-child(2)
+        .form__field
+          border-radius: 0 10px 10px 0
+          border-left-width: 1px

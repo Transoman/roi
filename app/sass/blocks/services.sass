@@ -1,0 +1,86 @@
+.services
+  position: relative
+  background: url('../img/dot-bg.png') no-repeat center / cover
+  z-index: 1
+
+  &__wrap
+    position: relative
+  .section-title
+    margin-bottom: 135px
+  &__count
+    position: absolute
+    right: 0
+    top: 150px
+    max-width: 320px
+    padding: 65px
+    background: url('../img/frame.png') no-repeat center
+    &--number
+      margin-top: -120px
+      font-family: $bradobrei
+      font-size: 42px
+      color: #fff
+      span
+        font-size: 128px
+        vertical-align: top
+        line-height: 1
+    &--desc
+      font-size: 18px
+      font-weight: 300
+
+.services-list
+  margin: 0
+  padding: 0
+  padding-right: 300px
+  list-style: none
+  display: flex
+  flex-wrap: wrap
+  &__item
+    position: relative
+    width: 33.33%
+    // width: 18.8%
+    padding: 0 90px
+    h3
+      margin-bottom: 20px
+      font-family: $main-font
+      font-size: 30px
+      font-weight: 700
+    p
+      margin-bottom: 20px
+      font-size: 18px
+      font-weight: 300
+      &:last-child
+        margin-bottom: 35px
+    &:nth-child(2)
+      margin-top: 170px
+    &:nth-child(3)
+      margin-top: 370px
+    &:nth-child(4)
+      margin-top: -100px
+  &__icon
+    position: relative
+    margin-bottom: 30px
+    z-index: 1
+    &::before
+      content: ''
+      position: absolute
+      top: 50%
+      left: -60px
+      width: 200px
+      height: 175px
+      transform: translateY(-50%)
+      background: url('../img/services-circle.png') no-repeat center / contain
+      z-index: -1
+    &--orange
+      img
+        filter: drop-shadow(0 0 30px $ecstasy)
+    &--green
+      img
+        filter: drop-shadow(0 0 30px $alpine)
+      &::before
+        left: -65px
+    &--purple
+      img
+        filter: drop-shadow(0 0 30px $amethyst)
+    &--pink
+      img
+        filter: drop-shadow(0 0 30px $red-violet)
