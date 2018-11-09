@@ -2,7 +2,8 @@ var gulp         = require('gulp'),
     gp           = require('gulp-load-plugins')(),
     autoprefixer = require('autoprefixer'), // PostCss autoprefixer - автоматично формує вендорні префікси
     gcmq         = require('gulp-group-css-media-queries'),
-    runSequence  = require('run-sequence'), // Збирає всі медіа-запити в одному місці
+    runSequence  = require('run-sequence'),
+    del          = require('del'), // Збирає всі медіа-запити в одному місці
     browserSync  = require('browser-sync').create(); // Сервер
 
 // Static server
