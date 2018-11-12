@@ -33,28 +33,47 @@ jQuery(document).ready(function($) {
     }
   });
 
-  t1 = new TimelineMax({
-    paused: true
+  var mobileMenu = function() {
+    t1 = new TimelineMax({
+      paused: true
+    });
+
+    if (window.innerWidth < 1200) {
+
+      t1.to('.nav', 1, {
+        top: '0%',
+        ease: Expo.easeInout,
+        // delay: -1
+      });
+  
+      t1.staggerFrom('.nav-list li', 1, {
+        x: -200,
+        opacity: 0,
+        ease: Expo.easeInout
+      }, 0.3);
+  
+      t1.staggerFrom('.nav__phone', 1, {
+        x: -200,
+        opacity: 0,
+        ease: Expo.easeInout
+      }, 0.3);
+  
+      t1.reverse();
+    }
+    else {
+      // t1.remove();
+      t1.staggerFrom('.nav-list li', 1, {
+        x: 0,
+        opacity: 1,
+        ease: Expo.easeInout
+      }, 0.3);
+    }
+  }
+
+  // mobileMenu();
+
+  window.addEventListener('resize', function() {
+    // mobileMenu();
   });
-
-  t1.to('.nav', 1, {
-    top: '0%',
-    ease: Expo.easeInout,
-    // delay: -1
-  });
-
-  t1.staggerFrom('.nav-list li', 1, {
-    x: -200,
-    opacity: 0,
-    ease: Expo.easeInout
-  }, 0.3);
-
-  t1.staggerFrom('.nav__phone', 1, {
-    x: -200,
-    opacity: 0,
-    ease: Expo.easeInout
-  }, 0.3);
-
-  t1.reverse();
 
 });

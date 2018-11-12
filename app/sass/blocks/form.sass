@@ -29,3 +29,23 @@
         .form__field
           border-radius: 0 10px 10px 0
           border-left-width: 1px
+
++media-breakpoint-down(xs)
+  .form
+    &--hr
+      flex-direction: column
+      .form-group
+        width: 100%
+        &:nth-child(1)
+          .form__field
+            border-radius: 10px
+            border-width: 2px
+        &:nth-child(2)
+          .form__field
+            border-radius: 10px
+            border-width: 2px
+    &-group
+      margin-bottom: 10px
+    &__field
+      padding: 15px 15px
+      font-size: 16px
