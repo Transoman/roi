@@ -76,4 +76,9 @@ jQuery(document).ready(function($) {
     // mobileMenu();
   });
 
+  // Counter number
+  $('.counter').counterUp({
+    time: 5000,
+  });
+
 });

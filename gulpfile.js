@@ -61,7 +61,10 @@ gulp.task('script', function() {
       'node_modules/jquery/dist/jquery.min.js',
       'node_modules/jquery-popup-overlay/jquery.popupoverlay.js',
       'node_modules/jquery-validation/dist/jquery.validate.min.js',
-      'node_modules/gsap/src/minified/TweenMax.min.js'
+      'node_modules/gsap/src/minified/TweenMax.min.js',
+      'node_modules/waypoints/lib/jquery.waypoints.min.js',
+      // 'node_modules/jquery.counterup/jquery.counterup.min.js'
+      'node_modules/counterup/jquery.counterup.min.js'
     ])
   .pipe(gp.concat('script.js'))
   .pipe(gp.uglify())
