@@ -63,8 +63,10 @@ gulp.task('script', function() {
       'node_modules/jquery-validation/dist/jquery.validate.min.js',
       'node_modules/gsap/src/minified/TweenMax.min.js',
       'node_modules/waypoints/lib/jquery.waypoints.min.js',
-      // 'node_modules/jquery.counterup/jquery.counterup.min.js'
-      'node_modules/counterup/jquery.counterup.min.js'
+      'node_modules/counterup/jquery.counterup.min.js',
+      'node_modules/swiper/dist/js/swiper.min.js',
+      'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
+      'node_modules/tabslet/jquery.tabslet.min.js'
     ])
   .pipe(gp.concat('script.js'))
   .pipe(gp.uglify())
@@ -153,5 +155,5 @@ gulp.task('default', function() {
     ['html', 'styles', 'script', 'js', 'fonts', 'images', 'svg'],
     'watch',
     'browser-sync'
-  );
+  )
 });

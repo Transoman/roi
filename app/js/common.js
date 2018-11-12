@@ -81,4 +81,37 @@ jQuery(document).ready(function($) {
     time: 5000,
   });
 
+  // Tabs
+  $('.portfolio-list').tabslet();
+
+  // Portfolio slider
+  var portfolioSlider = new Swiper ('.portfolio-slider', {
+    slidesPerView: 2,
+    spaceBetween: -120,
+    centeredSlides: true,
+    loop: true,
+
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'fraction',
+    },
+
+  })
+
+  var portfolioImage = $('.portfolio-slider__item.swiper-slide-active .portfolio-slider__img');
+  var heightImage = parseInt(portfolioImage.height(), 10);
+  var containerHeight = parseInt($('.portfolio-slider__item.swiper-slide-active').height(), 10);
+
+  // portfolioImage.click(function(e) {
+  //   $(this).css({'transform': 'translate(0, -' + (heightImage - containerHeight) + 'px)'});
+  //   console.log(portfolioImage);
+  // });
+
+  portfolioImage
+  .css('transform', 'translateY(0)')
+  .animate({
+    'transform': 'translateY(-' + (heightImage - containerHeight) + 'px)'
+  }, 5000);
+  console.log(heightImage);
+
 });
