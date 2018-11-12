@@ -1,0 +1,58 @@
+.advantages
+  // background: url('../img/advantages-bg.png') no-repeat center top
+  .section-title
+    max-width: 720px
+  .section-desc
+    margin-bottom: 150px
+    text-align: left
+
+.advantages-list
+  position: relative
+  margin: 0
+  padding: 0
+  list-style: none
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  &__item
+    position: relative
+    display: inline-block
+    width: 33.33%
+    margin-bottom: 180px
+    padding: 0 15px
+    padding-left: 130px
+    &:nth-child(1)
+      position: absolute
+      right: 0
+      top: -240px
+    &:nth-child(2), &:nth-child(3)
+      width: 40%
+    h3
+      margin-top: 15px
+      margin-bottom: 15px
+      font-family: $main-font
+      font-size: 30px
+      font-weight: 900
+    p
+      font-size: 18px
+      font-weight: 300
+      &:last-child
+        margin-bottom: 0
+  &__icon
+    position: absolute
+    top: 0
+    left: 0
+    display: flex
+    align-items: center
+    justify-content: center
+    +size(95px)
+    z-index: 1
+    &::before
+      content: ''
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      +size(165px)
+      background: url('../img/advantages-circle.svg') no-repeat center / contain
+      z-index: -1
