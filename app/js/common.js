@@ -95,6 +95,12 @@ jQuery(document).ready(function($) {
       el: '.swiper-pagination',
       type: 'fraction',
     },
+    breakpoints: {
+      992: {
+        slidesPerView: 1,
+        spaceBetween: 30
+      }
+    }
 
   })
 
