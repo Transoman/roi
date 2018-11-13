@@ -1,6 +1,23 @@
 .faq
+  position: relative
   padding-bottom: 215px
-  background: url('../img/faq-bg.png') no-repeat 110% -100%
+  z-index: 1
+  &::before
+    content: ''
+    position: absolute
+    right: 55%
+    top: 0
+    +size(758px, 1107px)
+    background: url('../img/faq-bg.png') no-repeat 10% center / contain
+    z-index: -1
+  &::after
+    content: ''
+    position: absolute
+    right: 0
+    top: -70px
+    +size(120px, 600px)
+    background-color: $accent
+    z-index: -1
   &__head
     margin-bottom: 150px
     padding-left: 600px
@@ -46,6 +63,7 @@
 
 +media-breakpoint-down(lg)
   .faq
+    padding-bottom: 80px
     &__head
       padding-left: 0
 
@@ -82,6 +100,14 @@
       font-size: 16px
 
 +media-breakpoint-down(xs)
+  .faq
+    padding-bottom: 40px
+    &::before
+      display: none
+    &::after
+      top: -50px
+      +size(60px, 300px)
+
   .faq-list
     &__item
       padding-left: 0

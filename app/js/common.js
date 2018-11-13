@@ -85,6 +85,12 @@ jQuery(document).ready(function($) {
   // Tabs
   $('.portfolio-list').tabslet();
 
+  // Parallax
+  var scene = document.getElementById('scene');
+  var parallaxInstance = new Parallax(scene, {
+    relativeInput: true
+  });
+
   var t2 = new TimelineMax({
     paused: true
   });

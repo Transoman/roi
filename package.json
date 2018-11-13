@@ -41,6 +41,7 @@
     "jquery-popup-overlay": "^1.7.4",
     "jquery-validation": "^1.17.0",
     "jquery.transit": "^0.9.12",
+    "parallax-js": "^3.1.0",
     "swiper": "^4.4.2",
     "tabslet": "^1.7.3"
   }

@@ -1,4 +1,13 @@
 .advantages
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    top: -70px
+    +size(120px, 480px)
+    background-color: $dodger-blue
+    z-index: -1
   &__head
     max-width: 740px
     margin-bottom: 150px
@@ -104,6 +113,12 @@
         width: 100%
 
 +media-breakpoint-down(xs)
+  .advantages
+    &::before
+      top: -50px
+      +size(60px, 240px)
+
+
   .advantages-list
     &__item
       padding: 95px 0 0 0

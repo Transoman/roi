@@ -3,6 +3,25 @@
   padding-bottom: 200px
   background: url('../img/dot-bg.png') no-repeat center / cover
   z-index: 1
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    top: -40px
+    +size(120px, 180px)
+    background-color: $dodger-blue
+    z-index: -1
+  &::after
+    content: ''
+    position: absolute
+    right: 0
+    top: 380px
+    +size(120px, 360px)
+    background-color: $accent
+    z-index: -1
+  .container
+    position: relative
+    z-index: 1
 
   &__wrap
     position: relative
@@ -146,6 +165,13 @@
       text-align: center
 
   .services
+    padding-bottom: 80px
+    &::before
+      top: -30px
+      +size(60px, 90px)
+    &::after
+      // top: -30px
+      +size(60px, 190px)
     .section-title
       margin-bottom: 70px
     &__count

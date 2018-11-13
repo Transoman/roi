@@ -67,7 +67,8 @@ gulp.task('script', function() {
       'node_modules/swiper/dist/js/swiper.min.js',
       'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
       'node_modules/tabslet/jquery.tabslet.min.js',
-      'node_modules/jquery.transit/jquery.transit.js'
+      'node_modules/jquery.transit/jquery.transit.js',
+      'node_modules/parallax-js/dist/parallax.min.js'
     ])
   .pipe(gp.concat('script.js'))
   .pipe(gp.uglify())
