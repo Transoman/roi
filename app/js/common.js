@@ -80,11 +80,24 @@ jQuery(document).ready(function($) {
 
   // Counter number
   $('.counter').counterUp({
-    time: 5000,
+    time: 2000,
   });
 
   // Tabs
   $('.portfolio-list').tabslet();
+
+  $(".nav-list").on("click","a", function (event) {
+    event.preventDefault();
+
+    var id  = $(this).attr('href'),
+    headerHeight = parseInt($('.header.sticky').height(), 10),
+
+    top = $(id).offset().top - headerHeight - 50;
+    $(".nav-toggle").removeClass("active");
+        $(".nav").removeClass("open");
+
+    $('body,html').animate({scrollTop: top}, 500);
+});
 
   // Parallax
   var scene = document.getElementById('scene');
