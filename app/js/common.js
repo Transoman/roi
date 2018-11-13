@@ -4,15 +4,16 @@ jQuery(document).ready(function($) {
   // Toggle nav menu
   $('.nav-toggle').on('click', function (e) {
     e.preventDefault();
-    t1.reversed(!t1.reversed());
+    // t1.reversed(!t1.reversed());
     $(this).toggleClass('active');
+    $('.header__nav').toggleClass('open');
   });
 
-  $('.nav-list a').on('click', function (e) {
-    e.preventDefault();
-    t1.reversed(!t1.reversed());
-    $('.nav-toggle').removeClass('active');
-  });
+  // $('.nav-list a').on('click', function (e) {
+  //   e.preventDefault();
+  //   t1.reversed(!t1.reversed());
+  //   $('.nav-toggle').removeClass('active');
+  // });
 
   // Modal
   $('.modal').popup({
@@ -170,14 +171,75 @@ jQuery(document).ready(function($) {
       992: {
         slidesPerView: 1,
         spaceBetween: 30
-      }
-    },
-    on: {
-      slideChangeTransitionEnd: function() {
-        portfolioImageScroll();
+      },
+      on: {
+        slideChangeTransitionEnd: function() {
+          portfolioImageScroll();
+        }
       }
     }
-
   });
+
+  
+  // jQuery(window).on('load', function(){
+  //   setTimeout(function() {
+  //     jQuery('.portfolio-slider__item.swiper-slide-active').scrollImage();
+  //   }, 1000);
+      
+  // });
+
+
+  var element = document.querySelectorAll('input[type="tel"]');
+  var maskOptions = {
+    mask: '+{7} (000) 000-00-00'
+  };
+
+  if (element) {
+    for (var i = 0; i < element.length; i++) {
+      var mask = new IMask(element[i], maskOptions);
+    }
+  }
+
+  jQuery.validator.addMethod("phoneno", function(phone_number, element) {
+    return this.optional(element) || phone_number.match(/\+[0-9]{1}\s\([0-9]{3}\)\s[0-9]{3}-[0-9]{2}-[0-9]{2}/);
+  }, "Введите Ваш телефон");
+  
+  $('.repeat-form').each(function(i, el) {
+    $(this).addClass('repeat-form-' + i);
+
+    $('.repeat-form-' + i).validate({
+      messages: {
+        name: "Введите Ваше имя",
+        phone: "Введите Ваш телефон",
+        message: "Введите Ваше сообщение",
+      },
+      rules: {
+        "phone": {
+          required: true,
+          phoneno: true
+        }
+      },
+      submitHandler: function(form) {
+        var t = $('.repeat-form-' + i).serialize();
+        ajaxSend('.repeat-form-' + i, t);
+      }
+    });
+  });
+
+  /* Функцыя для отправки формы */
+  function ajaxSend(formName, data) {
+    jQuery.ajax({
+      type: "POST",
+      url: "sendmail.php",
+      data: data,
+      success: function() {
+        $(".modal").popup("hide");
+        $("#thanks").popup("show");
+        setTimeout(function() {
+          $(formName).trigger('reset');
+        }, 2000);
+      }
+    });
+  }
 
 });
