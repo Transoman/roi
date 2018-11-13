@@ -4,16 +4,9 @@ jQuery(document).ready(function($) {
   // Toggle nav menu
   $('.nav-toggle').on('click', function (e) {
     e.preventDefault();
-    // t1.reversed(!t1.reversed());
     $(this).toggleClass('active');
     $('.header__nav').toggleClass('open');
   });
-
-  // $('.nav-list a').on('click', function (e) {
-  //   e.preventDefault();
-  //   t1.reversed(!t1.reversed());
-  //   $('.nav-toggle').removeClass('active');
-  // });
 
   // Modal
   $('.modal').popup({
@@ -72,24 +65,18 @@ jQuery(document).ready(function($) {
     }
   }
 
-  // mobileMenu();
-
-  window.addEventListener('resize', function() {
-    // mobileMenu();
-  });
 
   // Counter number
-  $('.counter').counterUp({
-    time: 2000,
-  });
+  // $('.counter').counterUp({
+  //   time: 2000,
+  // });
 
-  // Tabs
-  $('.portfolio-list').tabslet();
 
   $('a[href*="#"]')
   // Remove links that don't actually link to anything
   .not('[href="#"]')
   .not('[href="#0"]')
+  .not('.portfolio-list__tabs a')
   .click(function(event) {
     // On-page links
     if (
@@ -105,7 +92,7 @@ jQuery(document).ready(function($) {
         // Only prevent default if animation is actually gonna happen
         event.preventDefault();
 
-        var headerHeight = parseInt($('.header.sticky').height(), 10),
+        var headerHeight = parseInt($('.header').height(), 10),
         top = target.offset().top - headerHeight - 50;
 
         $('html, body').animate({
@@ -171,51 +158,54 @@ jQuery(document).ready(function($) {
     t2.reversed(!t2.reversed());
   }
 
-  // portfolioImageScroll();
-
-  window.addEventListener('scroll', function() {
-    
-    var scrolled = window.pageYOffset || document.documentElement.scrollTop;
-    var portfolioSectionOffset = $('.portfolio').offset().top;
-
-    console.log(portfolioSectionOffset);
-
-    if (scrolled >= portfolioSectionOffset) {
-      portfolioImageScroll();
-    }
-  });
-
   // Portfolio slider
-  var portfolioSlider = new Swiper ('.portfolio-slider', {
-    slidesPerView: 2,
-    spaceBetween: -120,
-    centeredSlides: true,
-    loop: true,
+  $('.portfolio-slider').each(function(i, el) {
+    var $this = $(this);
+    $this.addClass("portfolio-slider-" + i);
+    // $this.parent().find(".swiper-button-prev").addClass("button-prev-" + i);
+    // $this.parent().find(".swiper-button-next").addClass("button-next-" + i);
+    $this.parent().find(".swiper-pagination").addClass("swiper-pagination-" + i);
+  
+    // var btnNext = '.button-next-' + i;
+    // var btnPrev = '.button-prev-' + i;
 
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'fraction',
-    },
-    breakpoints: {
-      992: {
-        slidesPerView: 1,
-        spaceBetween: 30
+    var portfolioSlider = new Swiper ('.portfolio-slider-' + i, {
+      slidesPerView: 2,
+      spaceBetween: -120,
+      centeredSlides: true,
+      loop: true,
+
+      pagination: {
+        el: '.swiper-pagination-' + i,
+        type: 'fraction',
       },
-      on: {
-        slideChangeTransitionEnd: function() {
-          portfolioImageScroll();
+      breakpoints: {
+        992: {
+          slidesPerView: 1,
+          spaceBetween: 30
         }
       }
+    });
+
+  });
+
+  // Tabs
+  $('.portfolio-list').tabslet();
+  $('.portfolio-list').on('_after', function() {
+    if ($(window).width() >= 1200) {
+      $('.portfolio-slider__item').scrollImage();
     }
   });
 
   
-  // jQuery(window).on('load', function(){
-  //   setTimeout(function() {
-  //     jQuery('.portfolio-slider__item.swiper-slide-active').scrollImage();
-  //   }, 1000);
+  jQuery(window).on('load', function(){
+    setTimeout(function() {
+      if ($(window).width() >= 1200) {
+        $('.portfolio-slider__item').scrollImage();
+      }
+    }, 1000);
       
-  // });
+  });
 
 
   var element = document.querySelectorAll('input[type="tel"]');

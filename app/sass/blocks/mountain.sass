@@ -13,27 +13,27 @@
     left: 0
     right: 0
     &-1
-      top: 60px
+      top: 0
       // width: 110%
       left: -10%
       right: -10%
       height: 1100px
       background: url('../img/1.png') no-repeat center bottom / cover
     &-2
-      top: 0
+      top: 20px
       // width: 110%
       right: -10%
       left: -10%
       height: 1200px
       background: url('../img/2.png') no-repeat center bottom / cover
     &-3
-      top: 50px
-      left: -8%
+      top: 70px
+      left: -4%
       height: 1180px
       background: url('../img/3.png') no-repeat center bottom / cover
     &-4
-      top: 15px
-      right: -10%
+      top: 70px
+      right: -4%
       height: 1180px
       background: url('../img/4.png') no-repeat center bottom / cover
 
@@ -45,4 +45,7 @@
 
 +media-breakpoint-down(sm)
   .mountain
-    min-height: 300px
+    min-height: 400px
+    &-item
+      &-1, &-2, &-3, &-4
+        height: 500px
