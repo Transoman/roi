@@ -86,18 +86,34 @@ jQuery(document).ready(function($) {
   // Tabs
   $('.portfolio-list').tabslet();
 
-  $(".nav-list").on("click","a", function (event) {
-    event.preventDefault();
+  $('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
 
-    var id  = $(this).attr('href'),
-    headerHeight = parseInt($('.header.sticky').height(), 10),
+        var headerHeight = parseInt($('.header.sticky').height(), 10),
+        top = target.offset().top - headerHeight - 50;
 
-    top = $(id).offset().top - headerHeight - 50;
-    $(".nav-toggle").removeClass("active");
-        $(".nav").removeClass("open");
-
-    $('body,html').animate({scrollTop: top}, 500);
-});
+        $('html, body').animate({
+          scrollTop: top
+        }, 1000);
+      }
+    }
+  });
 
   // Parallax
   var scene = document.getElementById('scene');
@@ -212,6 +228,11 @@ jQuery(document).ready(function($) {
       var mask = new IMask(element[i], maskOptions);
     }
   }
+
+  $('.services-list__item .btn-trs').click(function(e) {
+    var name = $(this).parents('.services-list__item').find('h3').text();
+    $('#order-form input[name="subject"]').val('Заказ услуги: ' + name);
+  });
 
   jQuery.validator.addMethod("phoneno", function(phone_number, element) {
     return this.optional(element) || phone_number.match(/\+[0-9]{1}\s\([0-9]{3}\)\s[0-9]{3}-[0-9]{2}-[0-9]{2}/);
