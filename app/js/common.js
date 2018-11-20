@@ -59,10 +59,12 @@ jQuery(document).ready(function($) {
   });
 
   // Parallax
-  var scene = document.getElementById('scene');
-  var parallaxInstance = new Parallax(scene, {
-    relativeInput: true
-  });
+  if ($(window).width() > 1200) {
+    var scene = document.getElementById('scene');
+    var parallaxInstance = new Parallax(scene, {
+      relativeInput: true
+    });
+  }
 
   // Portfolio slider
   $('.portfolio-slider').each(function(i, el) {
