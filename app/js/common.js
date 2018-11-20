@@ -28,50 +28,6 @@ jQuery(document).ready(function($) {
     }
   });
 
-  var mobileMenu = function() {
-    t1 = new TimelineMax({
-      paused: true
-    });
-
-    if (window.innerWidth < 1200) {
-
-      t1.to('.nav', 1, {
-        top: '0%',
-        ease: Expo.easeInout,
-        // delay: -1
-      });
-  
-      t1.staggerFrom('.nav-list li', 1, {
-        x: -200,
-        opacity: 0,
-        ease: Expo.easeInout
-      }, 0.3);
-  
-      t1.staggerFrom('.nav__phone', 1, {
-        x: -200,
-        opacity: 0,
-        ease: Expo.easeInout
-      }, 0.3);
-  
-      t1.reverse();
-    }
-    else {
-      // t1.remove();
-      t1.staggerFrom('.nav-list li', 1, {
-        x: 0,
-        opacity: 1,
-        ease: Expo.easeInout
-      }, 0.3);
-    }
-  }
-
-
-  // Counter number
-  // $('.counter').counterUp({
-  //   time: 2000,
-  // });
-
-
   $('a[href*="#"]')
   // Remove links that don't actually link to anything
   .not('[href="#"]')
@@ -107,56 +63,6 @@ jQuery(document).ready(function($) {
   var parallaxInstance = new Parallax(scene, {
     relativeInput: true
   });
-
-  var t2 = new TimelineMax({
-    paused: true
-  });
-
-  var portfolioImageScroll = function() {
-    var portfolioImage = $('.portfolio-slider__item.swiper-slide-active .portfolio-slider__img');
-    var heightImage = parseInt(portfolioImage.height(), 10);
-    var containerHeight = parseInt($('.portfolio-slider__item.swiper-slide-active').height(), 10);
-
-    // var offsetVisible = function() {
-
-    //   if (heightImage - containerHeight > 0) {
-    //     return;
-    //   }
-
-    //   portfolioImage.stop();
-
-    //   portfolioImage.css({
-    //     bottom: 0
-    //   }, 5000);
-    // }
-
-    // var onRelease = function() {
-    //   portfolioImage.css({
-    //     bottom: (heightImage - containerHeight)
-    //   });
-    // }
-
-    // offsetVisible();
-    // onRelease();
-
-   
-
-    t2.to(portfolioImage,7, {
-      y: '-'+(heightImage - containerHeight)+'px',
-      ease: Expo.linear,
-    });
-
-    t2.reverse();
-
-    // if (portfolioImage.css('transform') < 'matrix(1, 0, 0, 1, 0, 0)') {
-    //   t1.to(portfolioImage,7, {
-    //     y: '0px',
-    //     ease: Expo.linear,
-    //   });
-    // }
-
-    t2.reversed(!t2.reversed());
-  }
 
   // Portfolio slider
   $('.portfolio-slider').each(function(i, el) {
@@ -194,21 +100,6 @@ jQuery(document).ready(function($) {
 
   // Tabs
   $('.portfolio-list').tabslet();
-  $('.portfolio-list').on('_after', function() {
-    if ($(window).width() >= 1200) {
-      // $('.portfolio-slider__item').scrollImage();
-      
-    }
-  });
-
-  
-  jQuery(window).on('load', function(){
-    setTimeout(function() {
-      if ($(window).width() >= 1200) {
-        // $('.portfolio-slider__item').scrollImage();
-      }
-    }, 1000);
-  });
 
   // Input mask
   var element = document.querySelectorAll('input[type="tel"]');

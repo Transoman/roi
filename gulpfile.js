@@ -62,15 +62,9 @@ gulp.task('script', function() {
       'node_modules/jquery-popup-overlay/jquery.popupoverlay.js',
       'node_modules/jquery-validation/dist/jquery.validate.min.js',
       'node_modules/imask/dist/imask.min.js',
-      'node_modules/gsap/src/minified/TweenMax.min.js',
-      'node_modules/waypoints/lib/jquery.waypoints.min.js',
-      'node_modules/counterup/jquery.counterup.min.js',
       'node_modules/swiper/dist/js/swiper.min.js',
-      'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
       'node_modules/tabslet/jquery.tabslet.min.js',
-      'node_modules/jquery.transit/jquery.transit.js',
       'node_modules/parallax-js/dist/parallax.min.js',
-      'app/js/jquery-image-scroll.js',
       'node_modules/simplebar/dist/simplebar.min.js'
     ])
   .pipe(gp.concat('script.js'))
