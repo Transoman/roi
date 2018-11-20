@@ -204,10 +204,9 @@ jQuery(document).ready(function($) {
         $('.portfolio-slider__item').scrollImage();
       }
     }, 1000);
-      
   });
 
-
+  // Input mask
   var element = document.querySelectorAll('input[type="tel"]');
   var maskOptions = {
     mask: '+{7} (000) 000-00-00'
