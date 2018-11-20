@@ -70,7 +70,8 @@ gulp.task('script', function() {
       'node_modules/tabslet/jquery.tabslet.min.js',
       'node_modules/jquery.transit/jquery.transit.js',
       'node_modules/parallax-js/dist/parallax.min.js',
-      'app/js/jquery-image-scroll.js'
+      'app/js/jquery-image-scroll.js',
+      'node_modules/simplebar/dist/simplebar.min.js'
     ])
   .pipe(gp.concat('script.js'))
   .pipe(gp.uglify())
