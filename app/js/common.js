@@ -50,6 +50,8 @@ jQuery(document).ready(function($) {
 
         var headerHeight = parseInt($('.header').height(), 10),
         top = target.offset().top - headerHeight - 50;
+        $('.nav-toggle').removeClass('active');
+        $('.header__nav').removeClass('open');
 
         $('html, body').animate({
           scrollTop: top
